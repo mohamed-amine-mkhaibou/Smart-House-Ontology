@@ -1,0 +1,66 @@
+@prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+#Regle 1 : S'il n ya pas de mouvement dans la pièce (etat de capteur_mv ="OFF"), on regarde s'il ya une télé ou une lampe
+# dans la meme pièce que le capteur, si c'est le cas on met à jour leur état (les éteindre)
+
+[rule1:  	(?capteur_mv rdf:type ns:Mouvement) (?capteur_mv  ns:estDans ?living) 
+ 
+ 			(?capteur_mv ns:etat "OFF")
+ 
+ 			(?lampe rdf:type ns:Lampe) (?lampe  ns:estDans ?living)
+ 			
+ 			 (?tv rdf:type ns:TV) (?tv  ns:estDans ?living)
+ 			
+  -> 	(?tv ns:etat "eteinte"^^xsd:string) 	(?lampe  ns:etat "eteinte"^^xsd:string)
+  
+  		(?capteur_mv ns:etat "OFF"^^xsd:string)
+ 	]
+ 	
+#Regle 2: Si ya un objet Alarme dont l'etat est (ON) on regarde si les volets sont fermés, si c'est le cas on va les ouvrir
+
+
+[rule2:  	(?alarme rdf:type ns:Alarme) (?alarme ns:etat "ON")
+
+	(?volet rdf:type ns:Volet) (?volet ns:etat "fermee")
+ 			
+  -> (?volet  ns:etat "ouvert"^^xsd:string)
+ 	]
+ 	
+ 	
+ 	
+ 	
+#Regle 3: On ouvre les volets de la pièce ou la température est supérieure à 19°
+ 	
+ 	[rule3:  	(?capteur rdf:type ns:Temperature)
+ 	
+ 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date) 
+ 			
+ 			(?volet rdf:type ns:Volet) (?volet ns:etat "fermee") 
+ 			
+			(?volet ns:estDans ?bedroom) (?capteur ns:degre ?value)
+			
+ 			greaterThan(?value, "19"^^xsd:double)
+ 			
+  -> (?volet  ns:etat "Ouvert"^^xsd:string) (?volet ns:date ?date) 
+ 	]
+ 	
+#Regle 3: Si la température est inférieure à 10, on allume le chauffage de la pièce ou il se trouve le capteur de température
+ 	
+ 	[rule4:  	(?capteur rdf:type ns:Temperature)
+ 	
+ 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date) 
+ 			
+ 			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF") 
+ 			
+			(?chauffage ns:estDans ?bedroom) (?chauffage ns:degre ?value)
+			
+ 			greaterThan(?value, "10"^^xsd:double)
+ 			
+  -> (?chauffage  ns:etat "Ouvert"^^xsd:string) (?chauffage ns:date ?date) 
+ 	]
+ 	
+ 	
+ 	
+ 	
+ 	

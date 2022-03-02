@@ -1,0 +1,311 @@
+<rdf:RDF
+    xmlns:untitled-ontology-15="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15"/>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Luminosite">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Lampe">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bathroom_big">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chambre">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedromm">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bathroom">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Door">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#TV">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Alarme">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Dining">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Volet">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Porte">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Closet">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Office">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Possede">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chambre"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedromm"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Heberge">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#estDans"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#estDans">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#AppartientA">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chambre"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedromm"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Possede"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#AffectePar">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Affecte">
+    <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#AffectePar"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#AffectePar"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#nom"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#mois"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#annee"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#jour"/>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#intensite">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Luminosite"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#degre">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </owl:DatatypeProperty>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Luminosite"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Porte"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <untitled-ontology-15:Door rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#BackDoor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </untitled-ontology-15:Door>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bathroom"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bathroom_big"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedromm"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chambre"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Closet"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Dining"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Office"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#MXXX">
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
+    <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OFF</untitled-ontology-15:etat>
+  </untitled-ontology-15:Mouvement>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <untitled-ontology-15:Door rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#GarageDoor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </untitled-ontology-15:Door>
+  <untitled-ontology-15:Utilisateur rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#youssef">
+    <untitled-ontology-15:nom>youssef</untitled-ontology-15:nom>
+    <untitled-ontology-15:Possede>
+      <untitled-ontology-15:Chambre rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1">
+        <untitled-ontology-15:Heberge>
+          <untitled-ontology-15:Temperature rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#temperature1">
+            <untitled-ontology-15:degre rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >30</untitled-ontology-15:degre>
+            <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </untitled-ontology-15:Temperature>
+        </untitled-ontology-15:Heberge>
+        <untitled-ontology-15:Heberge>
+          <untitled-ontology-15:TV rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#samsung">
+            <untitled-ontology-15:etat>éteinte</untitled-ontology-15:etat>
+            <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </untitled-ontology-15:TV>
+        </untitled-ontology-15:Heberge>
+        <untitled-ontology-15:Heberge>
+          <untitled-ontology-15:Luminosite rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#luminosite1">
+            <untitled-ontology-15:intensite rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >7</untitled-ontology-15:intensite>
+            <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </untitled-ontology-15:Luminosite>
+        </untitled-ontology-15:Heberge>
+        <untitled-ontology-15:Heberge>
+          <untitled-ontology-15:Lampe rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#lampe1">
+            <untitled-ontology-15:etat>ON</untitled-ontology-15:etat>
+            <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </untitled-ontology-15:Lampe>
+        </untitled-ontology-15:Heberge>
+        <untitled-ontology-15:Heberge>
+          <untitled-ontology-15:Alarme rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#A1">
+            <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ON</untitled-ontology-15:etat>
+            <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre1"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </untitled-ontology-15:Alarme>
+        </untitled-ontology-15:Heberge>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </untitled-ontology-15:Chambre>
+    </untitled-ontology-15:Possede>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </untitled-ontology-15:Utilisateur>
+  <untitled-ontology-15:TV rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living">
+    <untitled-ontology-15:estDans>
+      <untitled-ontology-15:Living rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#living_room"/>
+    </untitled-ontology-15:estDans>
+    <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >allumee</untitled-ontology-15:etat>
+  </untitled-ontology-15:TV>
+  <untitled-ontology-15:Luminosite rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#luminosite_living">
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#living_room"/>
+    <untitled-ontology-15:intensite rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >20</untitled-ontology-15:intensite>
+  </untitled-ontology-15:Luminosite>
+  <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#mv_living">
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#living_room"/>
+    <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >off</untitled-ontology-15:etat>
+  </untitled-ontology-15:Mouvement>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <untitled-ontology-15:Volet rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living">
+    <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ferme</untitled-ontology-15:etat>
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#living_room"/>
+  </untitled-ontology-15:Volet>
+  <untitled-ontology-15:Door rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#FrontDoor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </untitled-ontology-15:Door>
+  <untitled-ontology-15:Objet rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chaise">
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chambre_youssef"/>
+  </untitled-ontology-15:Objet>
+  <untitled-ontology-15:Lampe rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#lampe_living">
+    <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#living_room"/>
+    <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >allumee</untitled-ontology-15:etat>
+  </untitled-ontology-15:Lampe>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Alarme"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Door"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Lampe"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#TV"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Volet"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+</rdf:RDF>

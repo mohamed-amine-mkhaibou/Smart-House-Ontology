@@ -1,0 +1,36 @@
+@prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+ 
+ [rule1:  	(?capteur rdf:type ns:Temperature)
+ 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date) 
+ 			(?volet rdf:type ns:Volet)
+			(?volet ns:estDans ?bedroom) (?capteur ns:degre ?value)
+ 			greaterThan(?value, "20"^^xsd:double)
+ 			
+  -> (?volet  ns:etat "Ouvert"^^xsd:string) (?volet ns:date ?date) 
+ 	]
+ 	
+[rule5:  	(?capteur rdf:type ns:Temperature)
+ 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date) 
+ 			(?volet rdf:type ns:Volet)
+			(?volet ns:estDans ?bedroom) (?capteur ns:degre ?value)
+ 			lessThan(?value, "20"^^xsd:double)	
+ 			
+  -> (?volet  ns:etat "fermee"^^xsd:string) (?volet ns:date ?date) 
+ 	]
+ 	
+ 	
+ [rule3:  	(?capteur_mv rdf:type ns:Mouvement) (?capteur_mv  ns:estDans ?living) 
+ 
+ 			(?capteur_mv ns:etat "OFF")
+ 
+ 			(?lampe rdf:type ns:Lampe) (?lampe  ns:estDans ?living)
+ 			
+ 			 (?tv rdf:type ns:TV) (?tv  ns:estDans ?living)
+ 			
+  -> 	(?tv ns:etat "eteinte"^^xsd:string) 	(?lampe  ns:etat "eteinte"^^xsd:string)
+  
+  		(?capteur_mv ns:etat "OFF"^^xsd:string)
+  
+ 	]

@@ -1,0 +1,21 @@
+@prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+
+
+ 
+ 
+
+ [rule1:  	(?capteur_mv rdf:type ns:Mouvement) (?capteur_mv  ns:estDans ?living) 
+ 
+ 			(?capteur_mv ns:etat "OFF")
+ 
+ 			(?lampe rdf:type ns:Lampe) (?lampe  ns:estDans ?living)
+ 			
+ 			 (?tv rdf:type ns:TV) (?tv  ns:estDans ?living)
+ 			
+  -> 	(?tv ns:etat "eteinte"^^xsd:string) 	(?lampe  ns:etat "eteinte"^^xsd:string)
+  
+  		(?capteur_mv ns:etat "OFF"^^xsd:string)
+  
+ 	]

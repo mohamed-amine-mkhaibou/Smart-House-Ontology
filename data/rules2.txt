@@ -1,0 +1,13 @@
+@prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+
+
+ [rule2:  	(?alarme rdf:type ns:Alarme) (?alarme ns:etat "ON")
+
+	(?volet rdf:type ns:Volet) (?volet ns:etat "ferme")
+ 			
+  -> (?volet  ns:etat "ouvert"^^xsd:string)
+  
+  
+ 	]
