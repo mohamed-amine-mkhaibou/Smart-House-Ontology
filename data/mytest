@@ -1,9 +1,3 @@
-@prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-
-#Regle 1 : S'il n ya pas de mouvement dans la pièce (etat de capteur_mv ="OFF"), on regarde s'il ya une télé ou une lampe
-# dans la meme pièce que le capteur, si c'est le cas on met à jour leur état (les éteindre)
-
 [rule1:  	(?capteur_mv rdf:type ns:Mouvement) (?capteur_mv  ns:estDans ?living)
 
  			(?capteur_mv ns:etat "OFF")
@@ -59,8 +53,3 @@
 
   -> (?chauffage  ns:etat "Ouvert"^^xsd:string) (?chauffage ns:date ?date)
  	]
- 	
- 	
- 	
- 	
- 	

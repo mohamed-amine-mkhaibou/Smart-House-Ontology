@@ -19,8 +19,27 @@ public class StreamInputDataset {
     public static final String ns = "http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#";
     public static final String rdfs = "http://www.w3.org/2000/01/rdf-schema#";
     public static final String rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-	  public void run(Model model) {
 
+	public void printActivity(String[] split) {
+		if(split.length<=4) return;
+			System.out.print("----------------------------------------------");
+			for (int i = 4; i < split.length; i++) {
+				System.out.print(split[i] + " ");
+
+			}
+			System.out.println("------------------------------------------------");
+
+	}
+	public void printInfoCapteur(String action,String nomCapteur,String room,String time,String valeurCapteur) {
+		if(nomCapteur.charAt(0)=='M'||nomCapteur.charAt(0)=='D'){
+			System.out.println(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+time+" etat: "+valeurCapteur);
+		}else if(nomCapteur.charAt(0)=='T'){
+			System.out.println(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+time+" degre: "+valeurCapteur);
+		}
+
+	}
+
+	  public void run(Model model) {
 	        // dataset path
 	        String fileName = "data/data.txt";
 	        //read file into stream, try-with-resources
@@ -29,7 +48,7 @@ public class StreamInputDataset {
 	            stream.forEach(line -> {
 	                try{
 	                    //String[] split = line.split("\t");
-	                    String[] split = line.split("\\s+");
+	                    String[] split = line.trim().split("\\s+");
 	                    String typeCapteur="";
 	                    @SuppressWarnings("unused")
 	                    String nomCapteur="";
@@ -228,16 +247,18 @@ public class StreamInputDataset {
 	                    }
 	                    TimeUnit.SECONDS.sleep(0);
 
-	                    valeurCapteur =split[3];
-	                    if (model.contains(model.getResource(ns+nomCapteur),null, (RDFNode) null)) {
+	                    valeurCapteur =split[3];//état:on
+	                    if (model.contains(model.getResource(ns+nomCapteur),null, (RDFNode) null)) {//http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M003
 	                    	if (typeCapteur.equalsIgnoreCase("Mouvement") || typeCapteur.equalsIgnoreCase("Porte") ) {
-	                    		System.out.println("Update............................>"+nomCapteur);
+								printActivity(split);
+								printInfoCapteur("update",nomCapteur,room,time,valeurCapteur);
 	    	                    JenaEngine.updateValueOfDataTypeProperty(model, ns,nomCapteur,"etat",valeurCapteur);
 	    	                    JenaEngine.updateValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
 	    	                    JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
 	    	             
 	                    	}else {
-	                    		System.out.println("Update............................>"+nomCapteur);
+								printActivity(split);
+								printInfoCapteur("update",nomCapteur,room,time,valeurCapteur);
 	                    		JenaEngine.updateValueOfDataTypeProperty(model, ns,nomCapteur,"degre",
 	    	                    		Double.parseDouble(valeurCapteur));
 	    	                    JenaEngine.updateValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
@@ -246,14 +267,16 @@ public class StreamInputDataset {
 	                    	
 	                    }else {
 	                    if (typeCapteur.equalsIgnoreCase("Mouvement") || typeCapteur.equalsIgnoreCase("Porte") ) {
-                    		System.out.println("Create............................>"+nomCapteur);
-	                    JenaEngine.createInstanceOfClass(model, ns,typeCapteur,nomCapteur);
+							printActivity(split);
+							printInfoCapteur("create",nomCapteur,room,time,valeurCapteur);
+							JenaEngine.createInstanceOfClass(model, ns,typeCapteur,nomCapteur);
 	                    JenaEngine.addValueOfDataTypeProperty(model, ns,nomCapteur,"etat",valeurCapteur);
 	                    JenaEngine.addValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
 	                    JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
 	                    }
-	                    else { 
-                    		System.out.println("Create............................>"+nomCapteur);
+	                    else {
+							printActivity(split);
+							printInfoCapteur("create",nomCapteur,room,time,valeurCapteur);
 	                    	JenaEngine.createInstanceOfClass(model, ns,typeCapteur,nomCapteur);
 	                    JenaEngine.addValueOfDataTypeProperty(model, ns,nomCapteur,"degre",
 	                    		Double.parseDouble(valeurCapteur));

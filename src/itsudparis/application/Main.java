@@ -13,11 +13,11 @@ public class Main {
 	    final String ns = "http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#";
 	    final String rdfs = "http://www.w3.org/2000/01/rdf-schema#";
 	    final String rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-	    String inputRule = "data/rules4.txt";
+	    String inputRule = "data/owlrules.txt";
 
 	    Model model = JenaEngine.readModel(inputDataOntology);
 
-	     Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(model, inputRule);
+		Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(model, inputRule);
 
        
         JenaEngine.createInstanceOfClass(inferedModel, ns,"Objet", "table_dining");
