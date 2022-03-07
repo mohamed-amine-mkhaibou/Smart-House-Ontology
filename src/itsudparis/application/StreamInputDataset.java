@@ -30,11 +30,11 @@ public class StreamInputDataset {
 			System.out.println("------------------------------------------------");
 
 	}
-	public void printInfoCapteur(String action,String nomCapteur,String room,String time,String valeurCapteur) {
+	public void printInfoCapteur(String action,String nomCapteur,String room,String heure,String valeurCapteur) {
 		if(nomCapteur.charAt(0)=='M'||nomCapteur.charAt(0)=='D'){
-			System.out.println(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+time+" etat: "+valeurCapteur);
+			System.out.print(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+heure+" etat: "+valeurCapteur);
 		}else if(nomCapteur.charAt(0)=='T'){
-			System.out.println(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+time+" degre: "+valeurCapteur);
+			System.out.print(action+" "+nomCapteur+" estDans: "+room+" "+" date: "+heure+" degre: "+valeurCapteur);
 		}
 
 	}
@@ -52,7 +52,8 @@ public class StreamInputDataset {
 	                    String typeCapteur="";
 	                    @SuppressWarnings("unused")
 	                    String nomCapteur="";
-						String time="";
+						String heure="";
+						String date="";
 	                    String mesureCapteur="";
 	                    String room="" ;
 	                    String valeurCapteur="";
@@ -60,7 +61,8 @@ public class StreamInputDataset {
 	                    switch (split[2].substring(0,1)) {
 	                        case "D":
 	                            typeCapteur = "Porte";
-	                            time =split[1];
+								date =split[0];
+	                            heure =split[1];
 	                            switch (split[2].substring(0,4)) {
                                 case "D001":
                                 	room ="Living";
@@ -84,7 +86,8 @@ public class StreamInputDataset {
 	                            break;
 	                        case "T":
 	                            typeCapteur = "Temperature";
-	                            time =split[1];
+								date =split[0];
+	                            heure =split[1];
 	                            switch (split[2].substring(0,4)) {
 	                                case "T001":
 	                                	room ="Bedroom";
@@ -108,13 +111,11 @@ public class StreamInputDataset {
 	                                	break;
 	                              
 	                            }
-	                          	    	                 
-	    	                    
-
 	                            break;
 	                        case "M":
 	                        	typeCapteur = "Mouvement";
-	                            time =split[1];
+								date =split[0];
+	                            heure =split[1];
 	                            switch (split[2].substring(0,4)) {
                                 case "M001":
                                 	room ="Bedromm";
@@ -251,43 +252,47 @@ public class StreamInputDataset {
 	                    if (model.contains(model.getResource(ns+nomCapteur),null, (RDFNode) null)) {//http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M003
 	                    	if (typeCapteur.equalsIgnoreCase("Mouvement") || typeCapteur.equalsIgnoreCase("Porte") ) {
 								printActivity(split);
-								printInfoCapteur("update",nomCapteur,room,time,valeurCapteur);
+								printInfoCapteur("update",nomCapteur,room,heure,valeurCapteur);
 	    	                    JenaEngine.updateValueOfDataTypeProperty(model, ns,nomCapteur,"etat",valeurCapteur);
 	    	                    JenaEngine.updateValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
-	    	                    JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
+	    	                    JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"heure",heure);
+								JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"date",date);
 	    	             
 	                    	}else {
 								printActivity(split);
-								printInfoCapteur("update",nomCapteur,room,time,valeurCapteur);
+								printInfoCapteur("update",nomCapteur,room,heure,valeurCapteur);
 	                    		JenaEngine.updateValueOfDataTypeProperty(model, ns,nomCapteur,"degre",
 	    	                    		Double.parseDouble(valeurCapteur));
 	    	                    JenaEngine.updateValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
-	    	                    JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
+								JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"heure",heure);
+								JenaEngine.updateValueOfDataTypeProperty(model,ns,nomCapteur,"date",date);
 	                    	}
 	                    	
 	                    }else {
 	                    if (typeCapteur.equalsIgnoreCase("Mouvement") || typeCapteur.equalsIgnoreCase("Porte") ) {
 							printActivity(split);
-							printInfoCapteur("create",nomCapteur,room,time,valeurCapteur);
+							printInfoCapteur("create",nomCapteur,room,heure,valeurCapteur);
 							JenaEngine.createInstanceOfClass(model, ns,typeCapteur,nomCapteur);
 	                    JenaEngine.addValueOfDataTypeProperty(model, ns,nomCapteur,"etat",valeurCapteur);
 	                    JenaEngine.addValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
-	                    JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
+							JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"heure",heure);
+							JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"date",date);
 	                    }
 	                    else {
 							printActivity(split);
-							printInfoCapteur("create",nomCapteur,room,time,valeurCapteur);
+							printInfoCapteur("create",nomCapteur,room,heure,valeurCapteur);
 	                    	JenaEngine.createInstanceOfClass(model, ns,typeCapteur,nomCapteur);
 	                    JenaEngine.addValueOfDataTypeProperty(model, ns,nomCapteur,"degre",
 	                    		Double.parseDouble(valeurCapteur));
 	                    JenaEngine.addValueOfObjectProperty(model, ns,nomCapteur, "estDans",room);
-	                    JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"date",time);
+							JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"heure",heure);
+							JenaEngine.addValueOfDataTypeProperty(model,ns,nomCapteur,"date",date);
 	                    	
 	                    }
 	                    }      
 	                    TimeUnit.SECONDS.sleep(0);
 	                    detectAction(model.listStatements(),model);
-	                    
+						System.out.println();
 	                } catch(Exception e){
                     e.printStackTrace();
                 }
@@ -324,8 +329,8 @@ public class StreamInputDataset {
 						}
 				  }
 				  if(two) {
-						TimeUnit.SECONDS.sleep(2);
-						System.out.println("\n =====> Quelqu'un dans la douche");
+						TimeUnit.SECONDS.sleep(0);
+						System.out.print("-----------someone is using the Bathroom-----------");
 
 				  }
 				  //M0014 SALLE
@@ -333,7 +338,7 @@ public class StreamInputDataset {
 						if((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
 		                    TimeUnit.SECONDS.sleep(0);
 
-							System.out.println("\n =====> Quelqu'un mange dans la salle");
+							System.out.print("--------- Someone is behind the table-----------");
 						}
 				  }
 				  //M19 KITCHEN
@@ -349,12 +354,34 @@ public class StreamInputDataset {
 						}
 				  }
 				  if (three&&four) {
-	                    TimeUnit.SECONDS.sleep(2);
+	                    TimeUnit.SECONDS.sleep(0);
 
-					  System.out.println("\n ====> Quelqu'un préparer á manger dans la cuisine");
+					  System.out.print("--------Someone is cooking in the kitchen--------");
 				  }
-			  
-			  
+				  //M020 living
+				  if(subject.toString().equalsIgnoreCase("http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M020")) {
+					  if((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
+						  System.out.print("--------Someone is at living room--------");
+					  }
+				  }
+				  //M007 host bedroom
+				  if(subject.toString().equalsIgnoreCase("http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M007")) {
+					  if((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
+						  System.out.print("--------Someone is at host bedroom--------");
+					  }
+				  }
+				  //M024 guest bedroom
+				  if(subject.toString().equalsIgnoreCase("http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M024")) {
+					  if((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
+						  System.out.print("--------Someone is at guest bedroom--------");
+					  }
+				  }
+				  //M027 Office
+				  if(subject.toString().equalsIgnoreCase("http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M027")) {
+					  if((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
+						  System.out.print("--------Someone is at Office--------");
+					  }
+				  }
 		  }
 	  }
 }

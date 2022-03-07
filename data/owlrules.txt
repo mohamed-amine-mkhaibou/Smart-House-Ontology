@@ -1,5 +1,7 @@
 @prefix ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix op: <https://www.w3.org/TR/2017/REC-xpath-functions-31-20170321/>.
+@prefix fn: <http://users.ugent.be/~bjdmeest/function/20160610/>.
 
 #Regle 1 : S'il n ya pas de mouvement dans la pièce (etat de capteur_mv ="OFF"), on regarde s'il y a une télé ou une lampe
 # dans la meme pièce que le capteur, si c'est le cas on met à jour leur état (les éteindre)
@@ -45,7 +47,7 @@
   -> (?volet  ns:etat "Ouvert"^^xsd:string) (?volet ns:date ?date)
  	]
 
-#Regle 3: Si la température est inférieure à 10, on allume le chauffage de la pièce ou il se trouve le capteur de température
+#Regle 4: Si la température est inférieure à 10, on allume le chauffage de la pièce ou il se trouve le capteur de température
 
  	[rule4:  	(?capteur rdf:type ns:Temperature)
 
@@ -59,8 +61,5 @@
 
   -> (?chauffage  ns:etat "Ouvert"^^xsd:string) (?chauffage ns:date ?date)
  	]
- 	
- 	
- 	
- 	
- 	
+
+#Regle 5: la date =janvier février mars -> printemps, avril, may, juin-> été, july, aout, septembre->automne, octobre,novembre,décembre->hiver

@@ -24,11 +24,18 @@ public class Main {
 		StreamInputDataset myStream = new StreamInputDataset();
 		myStream.run(inferedModel);
 
+		String prefix="PREFIX ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#> " +
+				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
+				"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+				"PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
+				"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+				"PREFIX tg:<http://www.turnguard.com/functions#>";
+
 		System.out.println("Les capteurs dans Kitchen:");
-		System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?capteur WHERE { ?capteur <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"
-				+ " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement> ."
-				+ "?capteur <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#estDans> "
-				+ "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen>}"));
+		System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?capteur WHERE { \n" +
+				"?capteur  rdf:type ns:Mouvement .\n" +
+				"?capteur ns:estDans ns:Kitchen\n" +
+				"}"));
 		
 		
 		System.out.println("L'état du capteur M020:");
@@ -76,7 +83,7 @@ public class Main {
 				+ "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date }"));
 		
 		FileTool filetool = new FileTool();
-        filetool.saveOWL(model, "data/home_test");
+        filetool.saveOWL(model, "dataset.owl");
 		
 	}
 
@@ -132,5 +139,14 @@ public class Main {
 		JenaEngine.createInstanceOfClass(inferedModel, owl,"TV", "tv_living");
 		JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "tv_living", "etat", "allumee");
 		JenaEngine.addValueOfObjectProperty(inferedModel, owl, "tv_living", "estDans", "Living");
+
+
+		//high lever context
+		JenaEngine.createInstanceOfClass(inferedModel, owl,"periode", "periode_day");
+		JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_time", "");
+		JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_temperature", "");
+
+		JenaEngine.createInstanceOfClass(inferedModel, owl,"saison", "thisSaison");
+		JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "thisSaison", "Saison_Name", "");
 	}
 }
