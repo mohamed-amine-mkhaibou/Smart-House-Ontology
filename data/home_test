@@ -158,16 +158,6 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
   </owl:DatatypeProperty>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
-    </owl:members>
-  </owl:AllDisjointClasses>
   <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M028">
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >23:34:23.543743</untitled-ontology-15:date>
@@ -263,6 +253,16 @@
   <untitled-ontology-15:Objet rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Table-a-manger">
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen"/>
   </untitled-ontology-15:Objet>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M006">
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >23:43:26.824048</untitled-ontology-15:date>
@@ -377,6 +377,16 @@
     >OFF</untitled-ontology-15:etat>
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedromm"/>
   </untitled-ontology-15:Mouvement>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M001">
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >10:50:24.933925</untitled-ontology-15:date>
@@ -472,16 +482,6 @@
     <untitled-ontology-15:degre rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >21.5</untitled-ontology-15:degre>
   </untitled-ontology-15:Temperature>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre"/>
-      <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
-    </owl:members>
-  </owl:AllDisjointClasses>
   <untitled-ontology-15:Mouvement rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M031">
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >14:35:37.459497</untitled-ontology-15:date>
