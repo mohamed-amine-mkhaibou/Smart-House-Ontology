@@ -89,3 +89,23 @@
         lessThan(?mois,"13"^^xsd:int)
     -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
   	]
+#l'heure
+  	[rule9: (?capteur ns:heure ?heure)
+       greaterThan(?heure,5)
+       lessThan(?heure,"12"^^xsd:int)
+    -> (?capteur  ns:periode_time "matin"^^xsd:string)
+    ]
+    [rule10: (?capteur ns:heure ?heure)
+       greaterThan(?heure,11)
+       lessThan(?heure,"18"^^xsd:int)
+    -> (?capteur  ns:periode_time "apres-midi"^^xsd:string)
+    ]
+    [rule11: (?capteur ns:heure ?heure)
+       greaterThan(?heure,17)
+       lessThan(?heure,"24"^^xsd:int)
+    -> (?capteur  ns:periode_time "soir"^^xsd:string)
+    ]
+    [rule12: (?capteur ns:heure ?heure)
+       lessThan(?heure,"6"^^xsd:int)
+    -> (?capteur  ns:periode_time "nuit"^^xsd:string)
+    ]
