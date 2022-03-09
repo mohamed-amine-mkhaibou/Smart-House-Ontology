@@ -331,7 +331,7 @@ public class StreamInputDataset {
         return flag;
     }
     public static void detectAction(StmtIterator geriter, Model model) throws InterruptedException {
-        boolean frontDoor=false,corridor=false,Bathroom=false,table=false,kitchen=false,livingRoom=false,hostBedroom=false,guestBedroom=false,wardrobe=false,Office=false;
+       //pour chaque chambre, on va noter les capteur dedans
         String[] frontDoorCapteurs=new String[]{"D001"};
         String[] BathroomCapteurs=new String[]{"M031"};
         String[] tableCapteurs=new String[]{"M014"};
@@ -342,7 +342,8 @@ public class StreamInputDataset {
         String[] officeCapteurs=new String[]{"M025","M026","M027"};
         String[] wardrobeCapteurs=new String[]{"M031"};
         String[] corridorCapteurs=new String[]{"M021","M022"};
-        //Map<String[],boolean> capteurs=new String[][]{frontDoorCapteurs,BathroomCapteurs,tableCapteurs,kitchenCapteurs,livingRoomCapteurs,hostBedroomCapteurs,guestBedroomCapteurs,officeCapteurs,wardrobeCapteurs,corridorCapteurs};
+        String[]  hostBedroomToiletteCapteur=new String[]{"M004"};
+       //pour chaque groupe de capteur met dans un map
         Map<String[],Boolean> capteurs=new HashMap<>();
         capteurs.put(frontDoorCapteurs,false);
         capteurs.put(BathroomCapteurs,false);
@@ -354,8 +355,9 @@ public class StreamInputDataset {
         capteurs.put(officeCapteurs,false);
         capteurs.put(wardrobeCapteurs,false);
         capteurs.put(corridorCapteurs,false);
+        capteurs.put(hostBedroomToiletteCapteur,false);
 
-
+        //si une capteur dans un groupe de capteur est en état "on", on considère que quelqu'un est dans la chambre où les capteurs se situe
         while (geriter.hasNext()) {
             Statement stmt = geriter.nextStatement();
             Resource subject = stmt.getSubject();
@@ -363,28 +365,28 @@ public class StreamInputDataset {
             RDFNode object = stmt.getObject();
             if (!object.toString().startsWith("http")) {
                 //pour chaque groupe de capteur détecte si un capteur entre eux est activé
-                for (Map.Entry<String[],Boolean> entry : capteurs.entrySet()) {
-                    String[] key=entry.getKey();
-                    if (equalToOneCapteursInList(subject,key)){
+                for (Map.Entry<String[], Boolean> entry : capteurs.entrySet()) {
+                    String[] key = entry.getKey();
+                    if (equalToOneCapteursInList(subject, key)) {
                         if ((object.toString().split("http://www")[0]).equalsIgnoreCase("ON^^")) {
-                            capteurs.put(key,true);
+                            capteurs.put(key, true);
                         }
                     }
                 }
-
-
-        if(capteurs.get(frontDoorCapteurs)) System.out.print("-----------someone is opening the front door-----------");
-        if(capteurs.get(BathroomCapteurs)) System.out.print("-----------someone is using the Bathroom-----------");
-        if(capteurs.get(kitchenCapteurs)) System.out.print("--------Someone is in the kitchen--------");
-        if(capteurs.get(livingRoomCapteurs)) System.out.print("--------Someone is at living room--------");
-        if(capteurs.get(hostBedroomCapteurs)) System.out.print("--------Someone is at host bedroom--------");
-        if(capteurs.get(guestBedroomCapteurs)) System.out.print("--------Someone is at guest bedroom--------");
-        if(capteurs.get(officeCapteurs)) System.out.print("--------Someone is at Office--------");
-        if(capteurs.get(corridorCapteurs))  System.out.print("---------Someone is in the corridor-----------");
-        if(capteurs.get(wardrobeCapteurs))System.out.print("-------someone is in front of the wardrobe---------");
-        if(capteurs.get(tableCapteurs))  System.out.print("---------Someone is behind the table-----------");
-
-
+            }
+        }
+        if (capteurs.get(frontDoorCapteurs))
+            System.out.print("-----------someone is opening the front door-----------");
+        if (capteurs.get(BathroomCapteurs)) System.out.print("-----------someone is using the Bathroom-----------");
+        if (capteurs.get(kitchenCapteurs)) System.out.print("--------Someone is in the kitchen--------");
+        if (capteurs.get(livingRoomCapteurs)) System.out.print("--------Someone is at living room--------");
+        if (capteurs.get(hostBedroomCapteurs)) System.out.print("--------Someone is at host bedroom--------");
+        if (capteurs.get(guestBedroomCapteurs)) System.out.print("--------Someone is at guest bedroom--------");
+        if (capteurs.get(officeCapteurs)) System.out.print("--------Someone is at Office--------");
+        if (capteurs.get(corridorCapteurs)) System.out.print("---------Someone is in the corridor-----------");
+        if (capteurs.get(wardrobeCapteurs)) System.out.print("-------someone is in front of the wardrobe---------");
+        if (capteurs.get(tableCapteurs)) System.out.print("---------Someone is behind the table-----------");
+        if (capteurs.get(hostBedroomToiletteCapteur)) System.out.print("---------Someone is in the Bedroom Toilette-----------");
     }
 }
 
