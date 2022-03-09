@@ -2,6 +2,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix op: <https://www.w3.org/TR/2017/REC-xpath-functions-31-20170321/>.
 @prefix fn: <http://users.ugent.be/~bjdmeest/function/20160610/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 #Regle 1 : S'il n ya pas de mouvement dans la pièce (etat de capteur_mv ="OFF"), on regarde s'il y a une télé ou une lampe
 # dans la meme pièce que le capteur, si c'est le cas on met à jour leur état (les éteindre)
@@ -14,7 +15,7 @@
 
  			 (?tv rdf:type ns:TV) (?tv  ns:estDans ?living)
 
-  -> 	(?tv ns:etat "eteinte"^^xsd:string) 	(?lampe  ns:etat "eteinte"^^xsd:string)
+  -> 	(?tv ns:etat "eteinte"^^xsd:string)	(?lampe  ns:etat "eteinte"^^xsd:string)
 
   		(?capteur_mv ns:etat "OFF"^^xsd:string)
  	]
@@ -63,3 +64,11 @@
  	]
 
 #Regle 5: la date =janvier février mars -> printemps, avril, may, juin-> été, july, aout, septembre->automne, octobre,novembre,décembre->hiver
+
+	[rule5:
+	    (?capteur ns:date ?mois)
+
+    greaterThan(?mois,8)
+
+   -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+  	]

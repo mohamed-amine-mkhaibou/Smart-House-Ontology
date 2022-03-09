@@ -1,3 +1,5 @@
+
+#Regle 5: la date =janvier février mars -> printemps, avril, may, juin-> été, july, aout, septembre->automne, octobre,novembre,décembre->hiver
 	[rule5: (?capteur ns:date ?date)
 
   			op:numeric-equal(fn:compare(STR(?date),STR("03-31")), -1)
@@ -15,7 +17,7 @@
                 op:numeric-equal(fn:compare(STR("06-31"),STR(?date)), -1)
                 op:numeric-equal(STR(?date),fn:compare(STR("09-30")), -1)
 
-       -> (thisSaison  ns:Saison_Name "autome"^^xsd:string)
+       -> (thisSaison  ns:Saison_Name "automne"^^xsd:string)
     ]
 	[rule8: (?capteur ns:date ?date)
                 op:numeric-equal(fn:compare(STR("09-30"), STR(?date)), -1)
@@ -51,3 +53,33 @@
 
 -> (periode_day  ns:periode_time "nuit"^^xsd:string)
 ]
+
+
+select ?x ?mois where {
+ values ?x { "2010-11-04" }
+ bind(strafter( ?x, "2010-" ) as ?prefix )
+ bind( strbefore( ?prefix, "-" ) as ?mois )
+}
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?x IF(xsd:integer(?mois)<=3, "printemps",  IF(xsd:integer(?mois)<=6, "été",  IF(xsd:integer(?mois)<=9, "automne",  IF(xsd:integer(?mois)<=12, "hiver", "une erreur de format de date"))))
+where {
+values ?x { "2010-11-04" }
+bind(strafter( ?x, "2010-" ) as ?prefix )
+bind( strbefore( ?prefix, "-" ) as ?mois )
+}
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+[rule13: (?capteur ns:heure ?date)
+bind(strafter( ?date, "2010-" ) as ?prefix )
+bind( strbefore( ?prefix, "-" ) as ?mois )
+greaterThan(xsd:integer(?mois), "9"^^xsd:integer)
+}]
+
+  [rule13: (?capteur ns:date ?date)
+  bind(strafter( ?date, "2010-" ) as ?prefix )
+  bind( strbefore( ?prefix, "-" ) as ?mois )
+  greaterThan(xsd:integer(?mois), "9"^^xsd:integer)
+  }]
+
+   lessThan(?mois,"13"^^xsd:int)
