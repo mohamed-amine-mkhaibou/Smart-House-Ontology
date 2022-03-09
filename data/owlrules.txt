@@ -69,23 +69,64 @@
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,0)
         lessThan(?mois,"4"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Hiver"^^xsd:string)
   	]
 	[rule6:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,3)
         lessThan(?mois,"7"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Printemps"^^xsd:string)
   	]
 	[rule7:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,6)
         lessThan(?mois,"10"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Ete"^^xsd:string)
   	]
 	[rule8:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,9)
         lessThan(?mois,"13"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Automne"^^xsd:string)
   	]
+  	[rule9:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"00"^^xsd:int)
+        lessThan(?heure,"12"^^xsd:int)
+    -> (?capteur  ns:periode_time "Matin"^^xsd:string)
+  	]
+  	[rule10:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"12"^^xsd:int)
+        lessThan(?heure,"19"^^xsd:int)
+    -> (?capteur  ns:periode_time "Apres-midi"^^xsd:string)
+  	]
+  	[rule11:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"17"^^xsd:int)
+        lessThan(?heure,"24"^^xsd:int)
+    -> (?capteur  ns:periode_time "Soir"^^xsd:string)
+  	]
+  	[rule12:
+	    (?capteur ns:heure ?heure)
+	    equal(?heure,"00"^^xsd:int)
+    -> (?capteur  ns:periode_time "Minuit"^^xsd:string)
+  	]
+  	[rule13:
+	    (?capteur ns:heure ?heure)
+	    equal(?heure,"12"^^xsd:int)
+    -> (?capteur  ns:periode_time "Midi"^^xsd:string)
+  	]
+  	
+ 	[rule14: 
+
+ 			(?capteur ns:estDans ?office) (?capteur ns:date ?date)
+
+ 			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF")
+
+			(?chauffage ns:estDans ?Office) (?capteur ns:Saison_Name ?value) equal(?value,"Automne"^^xsd:string)
+
+ 			(?capteur ns:periode_time ?val) equal(?val,"Soir"^^xsd:string)
+
+  -> (?chauffage  ns:etat "ON"^^xsd:string) (?chauffage ns:date ?date)
+ 	] 	

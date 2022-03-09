@@ -142,11 +142,11 @@ public class Main {
 
 
         //high lever context
-        JenaEngine.createInstanceOfClass(inferedModel, owl, "periode", "periode_day");
+       /* JenaEngine.createInstanceOfClass(inferedModel, owl, "periode", "periode_day");
         JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_time", "");
         JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_temperature", "");
 
         JenaEngine.createInstanceOfClass(inferedModel, owl, "saison", "thisSaison");
-        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "thisSaison", "Saison_Name", "");
+        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "thisSaison", "Saison_Name", "");*/
     }
 }
