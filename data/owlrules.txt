@@ -66,9 +66,26 @@
 #Regle 5: la date =janvier février mars -> printemps, avril, may, juin-> été, july, aout, septembre->automne, octobre,novembre,décembre->hiver
 
 	[rule5:
-	    (?capteur ns:date ?mois)
-
-    greaterThan(?mois,8)
-
-   -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+	    (?capteur ns:mois ?mois)
+        greaterThan(?mois,0)
+        lessThan(?mois,"4"^^xsd:int)
+    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+  	]
+	[rule6:
+	    (?capteur ns:mois ?mois)
+        greaterThan(?mois,3)
+        lessThan(?mois,"7"^^xsd:int)
+    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+  	]
+	[rule7:
+	    (?capteur ns:mois ?mois)
+        greaterThan(?mois,6)
+        lessThan(?mois,"10"^^xsd:int)
+    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+  	]
+	[rule8:
+	    (?capteur ns:mois ?mois)
+        greaterThan(?mois,9)
+        lessThan(?mois,"13"^^xsd:int)
+    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
   	]

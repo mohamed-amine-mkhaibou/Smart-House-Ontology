@@ -83,3 +83,5 @@ greaterThan(xsd:integer(?mois), "9"^^xsd:integer)
   }]
 
    lessThan(?mois,"13"^^xsd:int)
+
+   equalToOneCapteursInList(subject,new String[]{"D003"}
