@@ -309,12 +309,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
-    
-
-
     <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen">
@@ -379,14 +373,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece">
@@ -399,14 +385,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Porte">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
     </owl:Class>
     
 
@@ -446,71 +424,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Volet">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#periode -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#periode">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#position -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#position">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#saison -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#saison">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
