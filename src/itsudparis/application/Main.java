@@ -60,27 +60,25 @@ public class Main {
                 + " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <" + ns + "Objet> }"));
 
 
-        System.out.println("L'état du volet kitchen quand T=22:");
+        System.out.println("L'état du volet kitchen:");
         System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <" + ns + "volet_kitchen>"
                 + " <" + ns + "etat> ?etat . <" + ns + "volet_kitchen> <" + ns + "date> ?date  }"));
 
-        System.out.println("L'état du volet de living T<20 (T=19):");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living>"
+        System.out.println("L'état du volet du Big Bedroom:");
+        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_Bedroom_big>"
                 + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat ."
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living> "
+                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_Bedroom_big> "
                 + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date }"));
 
-        System.out.println("Le dernier état du volet Living:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living>"
+        System.out.println("L'état du chauffage au bureau:");
+        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chauffage_office>"
                 + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat ."
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living> "
+                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chauffage_office> "
                 + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date  }"));
 
         System.out.println("L'état de la télé du Living room:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat ."
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living> "
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living>"
+                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat }"));
 
         FileTool filetool = new FileTool();
         filetool.saveOWL(inferedModel, "dataset1.owl");
@@ -127,6 +125,11 @@ public class Main {
 
         JenaEngine.createInstanceOfClass(inferedModel, owl, "Volet", "volet_kitchen");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "volet_kitchen", "estDans", "Kitchen");
+        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "volet_kitchen", "etat", "Fermee");
+
+        JenaEngine.createInstanceOfClass(inferedModel, owl, "Volet", "volet_Bedroom_big");
+        JenaEngine.addValueOfObjectProperty(inferedModel, owl, "volet_Bedroom_big", "estDans", "Bedroom_big");
+        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "volet_Bedroom_big", "etat", "Ouvert");
 
         JenaEngine.createInstanceOfClass(inferedModel, owl, "Chauffage", "chauffage_office");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "chauffage_office", "estDans", "Office");
@@ -140,13 +143,5 @@ public class Main {
         JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "tv_living", "etat", "allumee");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "tv_living", "estDans", "Living");
 
-
-        //high lever context
-        JenaEngine.createInstanceOfClass(inferedModel, owl, "periode", "periode_day");
-        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_time", "");
-        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "periode_day", "periode_temperature", "");
-
-        JenaEngine.createInstanceOfClass(inferedModel, owl, "saison", "thisSaison");
-        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "thisSaison", "Saison_Name", "");
     }
 }

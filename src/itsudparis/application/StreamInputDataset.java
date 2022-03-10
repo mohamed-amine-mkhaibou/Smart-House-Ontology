@@ -137,31 +137,31 @@ public class StreamInputDataset {
                             heure = split[1];
                             switch (split[2].substring(0, 4)) {
                                 case "M001":
-                                    room = "Bedromm";
+                                    room = "Bedroom_big";
                                     nomCapteur = "M001";
                                     break;
                                 case "M002":
                                     nomCapteur = "M002";
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     break;
                                 case "M003":
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     nomCapteur = "M003";
                                     break;
                                 case "M004":
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     nomCapteur = "M004";
                                     break;
                                 case "M005":
                                     nomCapteur = "M005";
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     break;
                                 case "M006":
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     nomCapteur = "M006";
                                     break;
                                 case "M007":
-                                    room = "Bedroom";
+                                    room = "Bedroom_big";
                                     nomCapteur = "M007";
                                     break;
                                 case "M008":

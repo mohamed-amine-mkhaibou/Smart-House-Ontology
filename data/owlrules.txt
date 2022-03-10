@@ -20,47 +20,20 @@
   		(?capteur_mv ns:etat "OFF"^^xsd:string)
  	]
 
-#Regle 2: Si ya un objet Alarme dont l'etat est (ON) on regarde si les volets sont fermés, si c'est le cas on va les ouvrir
 
+#Regle 2: On ouvre les volets de la cuisine, lorsque la température est supérieure à 20°
 
-[rule2:  	(?alarme rdf:type ns:Alarme) (?alarme ns:etat "ON")
+ 	[rule2:  	(?capteur rdf:type ns:Temperature)
 
-	(?volet rdf:type ns:Volet) (?volet ns:etat "fermee")
+ 			(?capteur ns:estDans ?kitchen) (?capteur ns:date ?date)
 
-  -> (?volet  ns:etat "ouvert"^^xsd:string)
- 	]
+ 			(?volet rdf:type ns:Volet) (?volet ns:etat "Fermee")
 
-
-
-
-#Regle 3: On ouvre les volets de la pièce ou la température est supérieure à 19°
-
- 	[rule3:  	(?capteur rdf:type ns:Temperature)
-
- 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date)
-
- 			(?volet rdf:type ns:Volet) (?volet ns:etat "fermee")
-
-			(?volet ns:estDans ?bedroom) (?capteur ns:degre ?value)
+			(?volet ns:estDans ?kitchen) (?capteur ns:degre ?value)
 
  			greaterThan(?value, "19"^^xsd:double)
 
   -> (?volet  ns:etat "Ouvert"^^xsd:string) (?volet ns:date ?date)
- 	]
-
-#Regle 4: Si la température est inférieure à 10, on allume le chauffage de la pièce ou il se trouve le capteur de température
-
- 	[rule4:  	(?capteur rdf:type ns:Temperature)
-
- 			(?capteur ns:estDans ?bedroom) (?capteur ns:date ?date)
-
- 			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF")
-
-			(?chauffage ns:estDans ?bedroom) (?chauffage ns:degre ?value)
-
- 			greaterThan(?value, "10"^^xsd:double)
-
-  -> (?chauffage  ns:etat "Ouvert"^^xsd:string) (?chauffage ns:date ?date)
  	]
 
 #Regle 5: la date =janvier février mars -> printemps, avril, may, juin-> été, july, aout, septembre->automne, octobre,novembre,décembre->hiver
@@ -69,43 +42,75 @@
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,0)
         lessThan(?mois,"4"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Hiver"^^xsd:string)
   	]
 	[rule6:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,3)
         lessThan(?mois,"7"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Printemps"^^xsd:string)
   	]
 	[rule7:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,6)
         lessThan(?mois,"10"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Ete"^^xsd:string)
   	]
 	[rule8:
 	    (?capteur ns:mois ?mois)
         greaterThan(?mois,9)
         lessThan(?mois,"13"^^xsd:int)
-    -> (?capteur  ns:Saison_Name "hiver"^^xsd:string)
+    -> (?capteur  ns:Saison_Name "Automne"^^xsd:string)
   	]
-#l'heure
-  	[rule9: (?capteur ns:heure ?heure)
-       greaterThan(?heure,5)
-       lessThan(?heure,"12"^^xsd:int)
-    -> (?capteur  ns:periode_time "matin"^^xsd:string)
-    ]
-    [rule10: (?capteur ns:heure ?heure)
-       greaterThan(?heure,11)
-       lessThan(?heure,"18"^^xsd:int)
-    -> (?capteur  ns:periode_time "apres-midi"^^xsd:string)
-    ]
-    [rule11: (?capteur ns:heure ?heure)
-       greaterThan(?heure,17)
-       lessThan(?heure,"24"^^xsd:int)
-    -> (?capteur  ns:periode_time "soir"^^xsd:string)
-    ]
-    [rule12: (?capteur ns:heure ?heure)
-       lessThan(?heure,"6"^^xsd:int)
-    -> (?capteur  ns:periode_time "nuit"^^xsd:string)
-    ]
+  	[rule9:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"00"^^xsd:int)
+        lessThan(?heure,"12"^^xsd:int)
+    -> (?capteur  ns:periode_time "Matin"^^xsd:string)
+  	]
+  	[rule10:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"12"^^xsd:int)
+        lessThan(?heure,"19"^^xsd:int)
+    -> (?capteur  ns:periode_time "Apres-midi"^^xsd:string)
+  	]
+  	[rule11:
+	    (?capteur ns:heure ?heure)
+	    greaterThan(?heure,"17"^^xsd:int)
+        lessThan(?heure,"24"^^xsd:int)
+    -> (?capteur  ns:periode_time "Soir"^^xsd:string)
+  	]
+  	[rule12:
+	    (?capteur ns:heure ?heure)
+	    equal(?heure,"00"^^xsd:int)
+    -> (?capteur  ns:periode_time "Minuit"^^xsd:string)
+  	]
+  	[rule13:
+	    (?capteur ns:heure ?heure)
+	    equal(?heure,"12"^^xsd:int)
+    -> (?capteur  ns:periode_time "Midi"^^xsd:string)
+  	]
+
+#Regle 14: S'il y a "l'automne & Soir & chauffage d'office OFF" => rendre le chauffage ON
+ 	[rule14: 
+
+ 			(?capteur ns:estDans ?office) (?capteur ns:date ?date)
+
+ 			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF")
+
+			(?chauffage ns:estDans ?office) (?capteur ns:Saison_Name ?value) equal(?value,"Automne"^^xsd:string)
+
+ 			(?capteur ns:periode_time ?val) equal(?val,"Soir"^^xsd:string)
+
+  -> (?chauffage  ns:etat "ON"^^xsd:string) (?chauffage ns:date ?date)
+ 	]
+
+#Regle 15: S'il y a "l'automne & Soir & volet_Bedroom_big Ouvert" => rendre le volet_Bedroom_big Fermee
+ 	[rule15:
+		(?capteur ns:estDans ?Bedroom_big) (?capteur ns:date ?date)
+		(?vlt rdf:type ns:Volet) (?vlt ns:etat "Ouvert")
+		(?vlt ns:estDans ?Bedroom_big) (?capteur ns:Saison_Name ?value) equal(?value,"Automne"^^xsd:string)
+		(?capteur ns:periode_time ?val) equal(?val,"Soir"^^xsd:string)
+
+	  -> (?vlt  ns:etat "Fermee"^^xsd:string) (?vlt ns:date ?date)
+	 	]
