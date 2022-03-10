@@ -394,6 +394,13 @@ public class StreamInputDataset {
         if (capteurs.get(tableCapteurs)) System.out.print("---------Someone is behind the table-----------");
         if (capteurs.get(hostBedroomToiletteCapteur)) System.out.print("---------Someone is in the Bedroom Toilette-----------");
 
+
+//        System.out.println(JenaEngine.executeQuery(model, prefix+"SELECT ?etat WHERE { ns:chauffage_office ns:etat ?etat }"));
+        System.out.println();
+        System.out.println("L'état du volet de la chambre:");
+        System.out.println(JenaEngine.executeQuery(model, prefix+"SELECT ?etat  WHERE { ?vlt rdf:type ns:Volet . ?vlt ns:estDans ns:Bedroom_big. ?vlt ns:etat ?etat }"));
+
+
     }
 }
 

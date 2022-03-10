@@ -66,6 +66,9 @@ public class Main {
         System.out.println("L'état de la chaffage de l'office:");
         System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:chauffage_office ns:etat ?etat }"));
 
+        System.out.println("L'état du volet de la chambre:");
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat  WHERE { ?vlt rdf:type ns:Volet . ?vlt ns:estDans ns:Bedroom_big. ?vlt ns:etat ?etat }"));
+
         FileTool filetool = new FileTool();
         filetool.saveOWL(inferedModel, "dataset1.owl");
 
