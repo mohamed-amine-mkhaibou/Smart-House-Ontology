@@ -4,15 +4,15 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
-  <rdf:Description rdf:nodeID="A0">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#autre"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chauffage">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
@@ -69,10 +69,6 @@
     <untitled-ontology-15:heure_precise rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19:59:52.370137</untitled-ontology-15:heure_precise>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <rdf:rest rdf:nodeID="A2"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -89,6 +85,10 @@
     <untitled-ontology-15:mois rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</untitled-ontology-15:mois>
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2010-11-04</untitled-ontology-15:date>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:rest rdf:nodeID="A2"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_kitchen">
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen"/>
@@ -206,7 +206,7 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="A4">
     <rdf:rest rdf:nodeID="A1"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#periode">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
@@ -235,6 +235,10 @@
     <untitled-ontology-15:heure_precise rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23:40:27.418802</untitled-ontology-15:heure_precise>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <rdf:rest rdf:nodeID="A6"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Lampe">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -251,9 +255,9 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A5">
-    <rdf:rest rdf:nodeID="A3"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
+  <rdf:Description rdf:nodeID="A7">
+    <owl:members rdf:nodeID="A8"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bedroom">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
@@ -326,14 +330,6 @@
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Volet"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A6">
-    <rdf:rest rdf:nodeID="A5"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A7">
-    <owl:members rdf:nodeID="A4"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
@@ -376,6 +372,10 @@
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:rest rdf:nodeID="A5"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M023">
     <untitled-ontology-15:Saison_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hiver</untitled-ontology-15:Saison_Name>
     <untitled-ontology-15:periode_time rdf:datatype="http://www.w3.org/2001/XMLSchema#string">soir</untitled-ontology-15:periode_time>
@@ -416,9 +416,9 @@
     <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A8">
-    <rdf:rest rdf:nodeID="A6"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
+  <rdf:Description rdf:nodeID="A9">
+    <owl:members rdf:nodeID="A10"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Affecte">
     <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#AffectePar"/>
@@ -430,6 +430,10 @@
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Chaise">
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:rest rdf:nodeID="A12"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Declanche"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Bathroom">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
@@ -459,10 +463,6 @@
     <untitled-ontology-15:heure_precise rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23:43:26.317409</untitled-ontology-15:heure_precise>
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A9">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
@@ -516,6 +516,10 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Utilisateur"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -528,8 +532,8 @@
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A10">
-    <rdf:rest rdf:nodeID="A8"/>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:rest rdf:nodeID="A11"/>
     <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Allume"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ouvre">
@@ -572,10 +576,6 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Closet"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#SmartHome"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A11">
-    <rdf:rest rdf:nodeID="A9"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Preference"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#position">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#HighLevelContext"/>
@@ -626,13 +626,13 @@
     <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:rest rdf:nodeID="A3"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Ferme"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_living">
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Volet"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A12">
-    <owl:members rdf:nodeID="A10"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Cuisiniere">
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Kitchen"/>
@@ -666,10 +666,6 @@
     <rdfs:range rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Objet"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A13">
-    <rdf:rest rdf:nodeID="A11"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Piece"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M026">
     <untitled-ontology-15:Saison_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hiver</untitled-ontology-15:Saison_Name>
@@ -715,6 +711,10 @@
     <untitled-ontology-15:heure_precise rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22:29:40.311758</untitled-ontology-15:heure_precise>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <rdf:rest rdf:nodeID="A4"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Action"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M030">
     <untitled-ontology-15:Saison_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hiver</untitled-ontology-15:Saison_Name>
     <untitled-ontology-15:periode_time rdf:datatype="http://www.w3.org/2001/XMLSchema#string">apres-midi</untitled-ontology-15:periode_time>
@@ -742,6 +742,10 @@
     <untitled-ontology-15:estDans rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Living"/>
     <untitled-ontology-15:etat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">allumee</untitled-ontology-15:etat>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Lampe"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:nodeID="A13"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Eteint"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Temperature">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Capteur"/>
@@ -780,10 +784,6 @@
     <untitled-ontology-15:mois rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</untitled-ontology-15:mois>
     <untitled-ontology-15:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2010-11-04</untitled-ontology-15:date>
     <rdf:type rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Mouvement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <rdf:rest rdf:nodeID="A13"/>
-    <rdf:first rdf:resource="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#Periode"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M027">
     <untitled-ontology-15:Saison_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hiver</untitled-ontology-15:Saison_Name>
