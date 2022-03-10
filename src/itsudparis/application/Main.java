@@ -39,46 +39,32 @@ public class Main {
 
 
         System.out.println("L'état du capteur M020:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#M020>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:M020  ns:etat ?etat }"));
 
         System.out.println("Etat de la télé:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:tv_living ns:etat ?etat }"));
 
         System.out.println("Etat de la lampe:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#lampe_living>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat }"));
-		    
-       
-         /*FileTool filetool = new FileTool();
-         filetool.saveOWL(model, "data/home_test");
-         */
-        System.out.println("\n Les objets du kitchen: ");
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:lampe_living ns:etat ?etat }"));
 
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?obj WHERE { ?obj"
-                + " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <" + ns + "Objet> }"));
+        System.out.println("\n Les objets dans la maison: ");
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?obj WHERE { ?obj  rdf:type ns:Objet }"));
 
 
         System.out.println("L'état du volet kitchen:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <" + ns + "volet_kitchen>"
-                + " <" + ns + "etat> ?etat . <" + ns + "volet_kitchen> <" + ns + "date> ?date  }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat ?date WHERE { ns:volet_kitchen ns:etat ?etat . ns:volet_kitchen ns:date ?date  }"));
 
         System.out.println("L'état du volet du Big Bedroom:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_Bedroom_big>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat ."
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#volet_Bedroom_big> "
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat ?date WHERE { ns:volet_Bedroom_big ns:etat ?etat . ns:volet_Bedroom_big ns:date ?date }"));
 
         System.out.println("L'état du chauffage au bureau:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat ?date WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chauffage_office>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat ."
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#chauffage_office> "
-                + "<http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#date> ?date  }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat ?date WHERE { ns:chauffage_office ns:etat ?etat . ns:chauffage_office ns:date ?date}"));
 
         System.out.println("L'état de la télé du Living room:");
-        System.out.println(JenaEngine.executeQuery(inferedModel, "SELECT ?etat WHERE { <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#tv_living>"
-                + " <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#etat> ?etat }"));
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:tv_living ns:etat ?etat }"));
+
+        System.out.println("L'état de la chaffage de l'office:");
+        System.out.println(JenaEngine.executeQuery(inferedModel, prefix+"SELECT ?etat WHERE { ns:chauffage_office ns:etat ?etat }"));
 
         FileTool filetool = new FileTool();
         filetool.saveOWL(inferedModel, "dataset1.owl");
@@ -134,13 +120,14 @@ public class Main {
         JenaEngine.createInstanceOfClass(inferedModel, owl, "Chauffage", "chauffage_office");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "chauffage_office", "estDans", "Office");
         JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "chauffage_office", "etat", "OFF");
+        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "chauffage_office", "etat", "OFF");
 
         JenaEngine.createInstanceOfClass(inferedModel, owl, "Lampe", "lampe_living");
         JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "lampe_living", "etat", "allumee");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "lampe_living", "estDans", "Living");
 
         JenaEngine.createInstanceOfClass(inferedModel, owl, "TV", "tv_living");
-        JenaEngine.updateValueOfDataTypeProperty(inferedModel, owl, "tv_living", "etat", "allumee");
+        JenaEngine.addValueOfDataTypeProperty(inferedModel, owl, "tv_living", "etat", "allumee");
         JenaEngine.addValueOfObjectProperty(inferedModel, owl, "tv_living", "estDans", "Living");
 
     }

@@ -85,3 +85,69 @@ greaterThan(xsd:integer(?mois), "9"^^xsd:integer)
    lessThan(?mois,"13"^^xsd:int)
 
    equalToOneCapteursInList(subject,new String[]{"D003"}
+
+
+  #Regle 14: S'il y a "l'automne & Soir & chauffage d'office OFF" => rendre le chauffage ON
+   	[rule14:
+
+   			(?capteur ns:estDans ?office) (?capteur ns:date ?date)
+
+   			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF")
+
+  			(?chauffage ns:estDans ?office) (?capteur ns:Saison_Name ?value) equal(?value,"Automne"^^xsd:string)
+
+   			(?capteur ns:periode_time ?val) equal(?val,"Soir"^^xsd:string)
+
+    -> (?chauffage  ns:etat "ON"^^xsd:string) (?chauffage ns:date ?date)
+   	]
+
+  #Regle 15:  chauffage d'office ON & "M025","M026","M027" les trois capteur OFF" => rendre le chauffage OFF
+      [rule15:
+
+              (?capteur ns:estDans ?office) (?capteur ns:etat "OFF"^^xsd:string)
+
+              (?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "ON")
+
+              (?chauffage ns:estDans ?office)
+
+    -> (?chauffage  ns:etat "OFF"^^xsd:string)
+      ]
+
+  #Regle 16: S'il y a "l'automne & Soir & volet_Bedroom_big Ouvert" => rendre le volet_Bedroom_big Fermee
+   	[rule16:
+  		(?capteur ns:estDans ?Bedroom_big) (?capteur ns:date ?date)
+  		(?vlt rdf:type ns:Volet) (?vlt ns:etat "Ouvert")
+  		(?vlt ns:estDans ?Bedroom_big) (?capteur ns:Saison_Name ?value) equal(?value,"Automne"^^xsd:string)
+  		(?capteur ns:periode_time ?val) equal(?val,"Soir"^^xsd:string)
+
+  	  -> (?vlt  ns:etat "Fermee"^^xsd:string) (?vlt ns:date ?date)
+  	 	]
+
+[rule14:
+
+ 			(?capteur ns:estDans ?office) (?capteur ns:etatActive "OFF")
+ 			(?chauffage rdf:type ns:Chauffage)
+
+ 	-> (?chauffage ns:etat "OFF"^^xsd:string) (?capteur ns:etatActive "ON")
+ 	]
+[rule15:
+
+ 			(ns:M025 ns:etat "ON")
+ 			(?chauffage rdf:type ns:Chauffage)
+
+ 	-> (?chauffage ns:etat "ON"^^xsd:string)
+ 	]
+[rule18:
+
+ 			(ns:M026 ns:etat "ON")
+ 			(?chauffage rdf:type ns:Chauffage)
+
+ 	-> (?chauffage ns:etat "ON"^^xsd:string)
+ 	]
+[rule16:
+
+ 			(ns:M027 ns:etat "ON")
+ 			(?chauffage rdf:type ns:Chauffage)
+
+ 	-> (?chauffage ns:etat "ON"^^xsd:string)
+ 	]

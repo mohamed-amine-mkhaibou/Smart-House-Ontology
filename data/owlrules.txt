@@ -91,10 +91,12 @@
     -> (?capteur  ns:periode_time "Midi"^^xsd:string)
   	]
 
-#Regle 14: S'il y a "l'automne & Soir & chauffage d'office OFF" => rendre le chauffage ON
- 	[rule14: 
 
- 			(?capteur ns:estDans ?office) (?capteur ns:date ?date)
+
+#Regle 14: S'il y a "l'automne & Soir & chauffage d'office OFF" => rendre le chauffage ON
+ 	[rule14:
+
+ 			(?capteur ns:estDans ?office)  (?capteur ns:date ?date)
 
  			(?chauffage rdf:type ns:Chauffage) (?chauffage ns:etat "OFF")
 
@@ -104,6 +106,8 @@
 
   -> (?chauffage  ns:etat "ON"^^xsd:string) (?chauffage ns:date ?date)
  	]
+
+
 
 #Regle 15: S'il y a "l'automne & Soir & volet_Bedroom_big Ouvert" => rendre le volet_Bedroom_big Fermee
  	[rule15:

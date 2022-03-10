@@ -22,6 +22,12 @@ public class StreamInputDataset {
     public static final String ns = "http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#";
     public static final String rdfs = "http://www.w3.org/2000/01/rdf-schema#";
     public static final String rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+    public static String prefix = "PREFIX ns: <http://www.semanticweb.org/win10/ontologies/2021/0/untitled-ontology-15#> " +
+            "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+            "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
+            "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+            "PREFIX tg:<http://www.turnguard.com/functions#>";
 
     public void printActivity(String[] split) {
         if (split.length <= 4) return;
@@ -387,6 +393,7 @@ public class StreamInputDataset {
         if (capteurs.get(wardrobeCapteurs)) System.out.print("-------someone is in front of the wardrobe---------");
         if (capteurs.get(tableCapteurs)) System.out.print("---------Someone is behind the table-----------");
         if (capteurs.get(hostBedroomToiletteCapteur)) System.out.print("---------Someone is in the Bedroom Toilette-----------");
+
     }
 }
 
